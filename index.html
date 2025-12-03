@@ -10,6 +10,14 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+
+        body.loaded {
+            visibility: visible;
+            opacity: 1;
         }
 
         @keyframes fade-in {
@@ -31,6 +39,14 @@
 </head>
 
 <body class="bg-white">
+    <script>
+        // Show body once Tailwind is loaded
+        window.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
     <!-- Navigation Bar -->
     <nav id="section-nav" class="fixed top-0 w-full bg-white shadow-md z-40">
         <div class="container mx-auto px-6 py-4 flex items-center justify-between">
